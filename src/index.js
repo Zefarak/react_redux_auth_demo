@@ -10,13 +10,17 @@ import "assets/css/demo.css";
 
 import indexRoutes from "routes/index.jsx";
 import {Provider} from 'react-redux';
-import store from './redux/store.js';
+import configureStore from './redux/store.js';
 import {fetchProductsIfNeeded} from "./redux/actions";
 import {fetchCategoriesIfNeeded} from "./redux/actions/categoryActions";
+import { auth_login } from './redux/actions/authActions.js';
 
+
+const store = configureStore();
 
 store.dispatch(fetchProductsIfNeeded());
 store.dispatch(fetchCategoriesIfNeeded());
+store.dispatch(auth_login())
 const hist = createBrowserHistory();
 
 
