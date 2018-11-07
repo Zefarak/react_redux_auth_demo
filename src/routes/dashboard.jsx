@@ -6,6 +6,7 @@ import TableList from "views/TableList/TableList.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import Upgrade from "views/Upgrade/Upgrade.jsx";
 import UserPage from "views/UserPage/UserPage.jsx";
+import Products from '../views/Products/Products.js';
 
 var dashRoutes = [
   {
@@ -22,6 +23,12 @@ var dashRoutes = [
     icon: "ui-1_bell-53",
     component: Notifications
   },
+    {
+      path: "/products",
+      name: "Products",
+      icon: "ui-1_bell-53",
+      component: Products
+    },
   {
     path: "/user-page",
     name: "User Profile",

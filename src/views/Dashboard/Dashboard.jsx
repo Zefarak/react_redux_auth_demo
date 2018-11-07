@@ -29,13 +29,13 @@ import {
 } from "variables/charts.jsx";
 
 import { tasks } from "variables/general.jsx";
+import {fetchTablesIfNeeded} from "../../redux/actions/tableActions";
 
 
 class Dashboard extends React.Component {
 
   render() {
     const my_items = this.props;
-    console.log('my props!', my_items);
     return (
       <div>
         <PanelHeader
@@ -233,16 +233,22 @@ class Dashboard extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log('mapStateToProps',state);
+    console.log('mapStateToProps', state);
+    let token = '';
+    if(state.token.data !== undefined){
+      token = state.token.data.token;
+    }
     return{
       products: state.products.items,
-      isFetching: state.products.isFetching
+      isFetching: state.products.isFetching,
+      token: token
     }
 }
 
 Dashboard.propTypes = {
-  products: PropType.array,
-  isFetching: PropType.bool.isRequired
+    products: PropType.array,
+    isFetching: PropType.bool.isRequired,
+    token: PropType.string
 };
 
 export default connect(mapStateToProps)(Dashboard);

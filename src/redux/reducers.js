@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { RECEIVE_PRODUCTS, REQUEST_PRODUCTS,INVALIDATED } from "./actions";
 import categoryReducer from './reducers/categoryReducer.js';
 import token from './reducers/tokenReducer.js';
+import tables from './reducers/tableReducer.js';
 import {initialState} from "../helpers/endpoints";
 
 
@@ -42,7 +43,8 @@ function productsReducer(state=initialState, action) {
 const rootReducer = combineReducers({
     products,
     categoryReducer,
-    token
+    token,
+    tables
 });
 
 

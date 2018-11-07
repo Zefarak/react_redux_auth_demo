@@ -1,4 +1,3 @@
-
 import {lookupOptions, PRODUCTS_ENDPOINT} from "../helpers/endpoints";
 
 export const ADD_PRODUCT = 'ADD_PRODUCT';

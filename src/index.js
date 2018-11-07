@@ -14,13 +14,18 @@ import configureStore from './redux/store.js';
 import {fetchProductsIfNeeded} from "./redux/actions";
 import {fetchCategoriesIfNeeded} from "./redux/actions/categoryActions";
 import { auth_login } from './redux/actions/authActions.js';
+import {fetchTablesIfNeeded} from "./redux/actions/tableActions";
 
 
 const store = configureStore();
 
 store.dispatch(fetchProductsIfNeeded());
 store.dispatch(fetchCategoriesIfNeeded());
-store.dispatch(auth_login())
+store.dispatch(auth_login());
+if (store.getState().token.data !== undefined){
+    console.log('i am here')
+    store.dispatch(fetchTablesIfNeeded(store.getState().token.data.token))
+}
 const hist = createBrowserHistory();
 
 
